@@ -1,0 +1,679 @@
+<html lang="en"><head>
+    <title>Gauge and Taiko in Action</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+                                   initial-scale=1,
+                                   user-scalable=yes">
+    <meta name="author" content="Scott Davis <scott.davis@thoughtworks.com>">
+    <meta name="description" content="Gauge and Taiko in Action">
+    <meta name="keywords" content="ThoughtWorks, Gauge, Taiko, testing, user journey, fitness function">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/talk-o-vision.css">
+
+    <style>
+      .main-title{
+        background: url('slides/title/gauge-buildings.png') no-repeat center center;
+        background-size: contain;
+      }
+
+
+      .banner{
+        background-color: var(--theme-foreground-color);
+        opacity: 0.9;
+        top: 45vh;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 hidden="" aria-hidden="false">Gauge and Taiko in Action</h1>
+    <main class="slideshow">
+      <section class="main-title" id="1" data-src="slides/title">
+        <h2 hidden="" aria-hidden="false">User Journey Testing with Gauge and Taiko</h2>
+        <audio src="slides/title/audio.mp3"></audio>
+        <style>
+          .custom-banner{
+            padding-left: 1em;
+            text-align: left;
+            font-size: 2em;
+            font-weight: bold; 
+          }
+
+          .custom-bio{
+            text-align: left;
+            font-size: 0.5em;
+          }
+
+          .custom-subtitle{
+            font-size: 0.6em;
+            font-style: italic;
+          }
+        </style>
+        <figure>
+          <div class="custom-banner">
+            User Journey Testing<br>with Gauge and Taiko
+            <div class="custom-bio">
+              <br>
+              Scott Davis<br>
+              <a href="mailto:scott.davis@thoughtworks.com">scott.davis@thoughtworks.com</a><br>
+              <a href="https://twitter.com/scottdavis99">@scottdavis99</a>
+            </div>
+          </div>
+          <figcaption>
+            <p>
+              Introducing Gauge, a framework for User Journey tests.
+            </p>
+            <p>
+              Presented by Scott Davis. His email address is
+              scott.davis@thoughtworks.com. His Twitter handle is @scottdavis99.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+      <!-- <section data-src="slides/instructions"></section> -->
+      <section class="theme-invert" id="2" data-src="slides/bio">
+        <h2 hidden="" aria-hidden="false">Biography</h2>
+        <audio src="slides/bio/audio.mp3"></audio>
+        <figure>
+          <a href="https://www.thoughtworks.com/profiles/scott-davis">
+          <img src="slides/bio/scott-davis-bio-2.png" alt="Scott Davis' Biography" class="contain">
+          </a>
+          <figcaption>
+           <p>Hi! My name is Scott Davis. I'm currently a Principle Engineer
+             with ThoughtWorks. Before that, I ran a software consultancy out
+             of Denver, Colorado called ThirstyHead. </p>
+
+           <p>I've been writing about web development for years -- articles
+             for IBM, books for O'Reilly and the Pragmatic Bookshelf, and most
+             recently videos for O'Reilly as well.</p>
+          </figcaption>
+        </figure>
+      </section>
+      <section id="3" data-src="slides/gauge">
+        <h2><a href="https://gauge.org/">https://gauge.org/</a></h2>
+        <audio src="slides/gauge/audio.mp3"></audio>
+        <figure>
+          <a href="https://gauge.org/">
+          <img src="slides/gauge/gauge-home.png" alt="Gauge home page" class="contain-with-header" data-src="https://gauge.org/">
+          </a>
+
+          <figcaption>
+            <p>
+            Today, I'd like to talk to you about Gauge, a free and open source testing framework for acceptance testing.
+            </p>
+            <p>But before we get too far, I think that it's worthwhile to define some terms more clearly. You'll hear me call acceptance testing "User Journey testing", which I think is a better description of what we're trying to accomplish when we use Gauge. Either way, this kind of testing is significantly different than the kind of testing that you probably do today, if you're a typical front-end developer.</p>
+          </figcaption>
+        </figure>
+      </section>
+      <section id="4" data-src="slides/taiko">
+        <h2 aria-hidden="false"><a href="https://taiko.gauge.org/">https://taiko.gauge.org</a></h2>
+        <audio src="slides/taiko/audio.mp3"></audio>
+        <figure>
+          <a href="https://taiko.gauge.org">
+          <img src="slides/taiko/taiko-home.png" alt="Taiko Homepage" class="contain-with-header" data-src="https://taiko.gauge.org/">
+          </a>
+
+          <figcaption>
+            <p>
+Today I'd like to talk to you about Taiko -- a free and open source browser automation tool built by ThoughtWorks. So, what exactly is a browser automation tool?            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="5" data-src="slides/gauge-and-taiko">
+        <h2 hidden="" aria-hidden="false">Gauge and Taiko</h2>
+        <figure>
+          <p class="left half">
+          <!-- span class="highlight embiggen">Gauge</span--> 
+          <img src="slides/gauge-and-taiko/gauge-black.png" class="contain-half">
+          <br>is a <span class="highlight">test runner</span> that makes it easy to express your tests in the language of your users.
+          </p>
+          <p class="right half">
+          <!-- span class="highlight embiggen">Taiko</span --> 
+          <img src="slides/gauge-and-taiko/taiko-black.png" class="contain-half">
+          <br>is a <span class="highlight">browser automation tool</span> that makes it easy to drive your web browser with a friendly Domain-Specific Language (DSL).
+          </p>
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="6" data-src="slides/gauge-and-taiko-together">
+        <h2 hidden="" aria-hidden="false">Gauge and Taiko Together</h2>
+        <figure>
+          <p><span class="highlight embiggen">Together</span><br>Gauge and Taiko make writing User Journey tests easier than you might have thought possible.</p>
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section class="theme-invert" id="7" data-src="slides/user-journey-test">
+        <h2 hidden="" aria-hidden="false">User Journey Test</h2>
+        <audio src="slides/user-journey-test/audio.mp3"></audio>
+        <figure>
+          <a href="https://martinfowler.com/bliki/UserJourneyTest.html">
+          <img src="slides/user-journey-test/user-journey-test.png" alt="User Journey Test" class="contain" data-src="https://martinfowler.com/bliki/UserJourneyTest.html">
+          </a>
+
+          <figcaption>
+            <p>User Journey tests are written in the language of the end user, not in the language of the developer (either programming or spoken). Users typically say things like, "I'd like to add tomatoes to my shopping cart", not "I'd like to add the UPC string of the selected item to that array of strings over there in the Cart component."
+            </p>
+            <p>Now, while literal-minded developers might scoff and think, "Meh, as long as the functionality gets tested, does the language of the test really matter?"</p>
+            <p>Here's the deal: it does. It really does, especially when we're talking about User Journey tests. You can call them "acceptance" tests, because what we're trying to figure out is what an "acceptable" website looks like to the user -- Is it acceptable if you can't add items to a cart? Is it acceptable if you can't check out and actually purchase the items?</p>
+            <p>So by calling these tests User Journey tests, it brings the user back into forefront the conversation. The tests are written in the user's language. The acceptance of the finished project is ultimately up to the user, not the developer.</p>
+          </figcaption>
+        </figure>
+      </section>
+      <section class="theme-invert" id="8" data-src="slides/design-thinking">
+        <h2 hidden="" aria-hidden="false">Design Thinking Starts with Empathy</h2>
+        <audio src="slides/design-thinking/audio.mp3"></audio>
+        <figure>
+          <a href="https://www.interaction-design.org/literature/article/stage-1-in-the-design-thinking-process-empathise-with-your-users">
+          <img src="slides/design-thinking/design-thinking-empathy.png" alt="Design Thinking starts with empathy." class="contain" data-src="https://www.interaction-design.org/literature/article/stage-1-in-the-design-thinking-process-empathise-with-your-users">
+          </a>
+
+          <figcaption>
+            <p>
+              If you ask a typical developer what step #1 of a new project is, chances are good that they'll say something like, "Pick a web framework" or "Set up a new code repository".
+            </p>
+            <p>If you ask a fan of Design Thinking what step #1 of a new project is, they'll say, "Empathy". Putting yourself in the mindset of the user. Understanding what they want to accomplish when they use your app. </p>
+            <p>Because if you start writing tests in the language of the user, it helps you think like a user. And then, it opens up creativity in an entirely different part of your brain. "Hmmm, if I buy tomatoes every week, wouldn't it be cool if I could just re-purchase last week's shopping cart full of the food I normally buy?" "I'm already uploading a pre-written shopping list to my cart for my automated unit tests -- I wonder if it would make my users lives easier if they could do the same thing?"</p>
+          </figcaption>
+        </figure>
+      </section>
+      <section id="9" data-src="slides/cucumber-history">
+        <h2 hidden="" aria-hidden="false">Cucumber History</h2>
+        <figure>
+          <a href="https://en.wikipedia.org/wiki/Cucumber_(software)">
+          <img src="slides/cucumber-history/cucumber-history-timeline.png" alt="Cucumber History" class="contain" data-src="https://en.wikipedia.org/wiki/Cucumber_(software)">
+          </a>
+
+          <figcaption>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="10" data-src="slides/cucumber-example">
+        <h2 aria-hidden="false">Cucumber Example</h2>
+        <figure>
+          <a href="https://en.wikipedia.org/wiki/Cucumber_(software)">
+          <img src="slides/cucumber-example/cucumber-example.png" alt="Cucumber Example" class="contain-with-header" data-src="https://en.wikipedia.org/wiki/Cucumber_(software)">
+          </a>
+
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="11" data-src="slides/gauge-scenarios">
+        <h2 hidden="" aria-hidden="false">Gauge Scenarios</h2>
+        <figure>
+          <a href="https://gauge.org">
+          <img src="slides/gauge-scenarios/gauge-scenarios.png" alt="Gauge Scenarios" class="contain" data-src="https://gauge.org">
+          </a>
+
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="12" data-src="slides/gauge-implementations">
+        <h2 hidden="" aria-hidden="false">Gauge Implementations</h2>
+        <figure>
+          <a href="https://gauge.org">
+          <img src="slides/gauge-implementations/gauge-implementations.png" alt="Gauge Implementations" class="contain" data-src="https://gauge.org">
+          </a>
+
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="13" data-src="slides/gauge-report">
+        <h2 hidden="" aria-hidden="false">Gauge Report</h2>
+        <figure>
+          <a href="https://gauge.org">
+          <img src="slides/gauge-report/gauge-report.png" alt="Gauge Report" class="contain" data-src="https://gauge.org">
+          </a>
+
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="14" data-src="slides/gauge-install">
+        <h2 hidden="" aria-hidden="false">Gauge Installation</h2>
+        <figure>
+          <a href="https://docs.gauge.org/getting_started/installing-gauge.html?os=macos&amp;language=javascript&amp;ide=vscode">
+          <img src="slides/gauge-install/gauge-install.png" alt="Gauge Installation" class="contain" data-src="https://docs.gauge.org/getting_started/installing-gauge.html?os=macos&amp;language=javascript&amp;ide=vscode">
+          </a>
+
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="15" data-src="slides/gauge-new-project">
+        <h2 hidden="" aria-hidden="false">Gauge New Project</h2>
+        <figure>
+          <a href="https://docs.gauge.org/getting_started/create-test-project.html?os=macos&amp;language=javascript&amp;ide=vscode">
+          <img src="slides/gauge-new-project/gauge-new-project.png" alt="Gauge New Project" class="contain" data-src="https://docs.gauge.org/getting_started/create-test-project.html?os=macos&amp;language=javascript&amp;ide=vscode">
+          </a>
+
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="16" data-src="slides/gauge-run">
+        <h2 hidden="" aria-hidden="false">Gauge Run</h2>
+        <figure>
+          <a href="https://docs.gauge.org/getting_started/running-a-specification.html?os=macos&amp;language=javascript&amp;ide=vscode">
+          <img src="slides/gauge-run/gauge-run.png" alt="Gauge Run" class="contain" data-src="https://docs.gauge.org/getting_started/running-a-specification.html?os=macos&amp;language=javascript&amp;ide=vscode">
+          </a>
+
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="17" data-src="slides/blank">
+        <h2 hidden="" aria-hidden="false">Blank</h2>
+        <figure>
+
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+
+
+      <section id="18" data-src="slides/taiko">
+        <h2 aria-hidden="false"><a href="https://taiko.gauge.org/">https://taiko.gauge.org</a></h2>
+        <audio src="slides/taiko/audio.mp3"></audio>
+        <figure>
+          <a href="https://taiko.gauge.org">
+          <img src="slides/taiko/taiko-home.png" alt="Taiko Homepage" class="contain-with-header" data-src="https://taiko.gauge.org/">
+          </a>
+
+          <figcaption>
+            <p>
+Today I'd like to talk to you about Taiko -- a free and open source browser automation tool built by ThoughtWorks. So, what exactly is a browser automation tool?            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="19" data-src="slides/selenium-history">
+        <h2 hidden="" aria-hidden="false">Selenium History</h2>
+        <audio src="slides/selenium-history/audio.mp3"></audio>
+        <figure>
+          <a href="https://en.wikipedia.org/wiki/Selenium_(software)">
+          <img src="slides/selenium-history/selenium-history-timeline.png" alt="Selenium History" class="contain" data-src="https://en.wikipedia.org/wiki/Selenium_(software)#Selenium_WebDriver">
+          </a>
+
+          <figcaption>
+            <p>
+      As a matter of fact, ThoughtWorks has been actively working on browser automation tools for over 15 years at this point.       
+            </p>
+            <p>
+You might be familiar with "Selenium", a free and open source browser automation tool that we released way back in 2004. 
+            </p>
+            <p>
+Simon Stewart released a free and open source tool called "WebDriver" back in 2007, and the two projects merged in 2009. 
+            </p>
+            
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="20" data-src="slides/selenium-flaky">
+        <h2 hidden="" aria-hidden="false">Selenium Flaky</h2>
+        <figure>
+          <a href="https://www.shield34.com/blog/specific-tips-on-how-to-reduce-selenium-flaky-tests-that-every-coder-should-know/">
+          <img src="slides/selenium-flaky/selenium-flaky.png" alt="Selenium Flaky" class="contain" data-src="https://www.shield34.com/blog/specific-tips-on-how-to-reduce-selenium-flaky-tests-that-every-coder-should-know/">
+          </a>
+
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="21" data-src="slides/chromium">
+        <h2 aria-hidden="false">Taiko includes Chromium</h2>
+        <audio src="slides/chromium/audio.mp3"></audio>
+        <figure>
+          <a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)">
+          <img src="slides/chromium/chromium.png" alt="Chromium" class="contain-with-header" data-src="https://en.wikipedia.org/wiki/Chromium_(web_browser)">
+          </a>
+
+          <figcaption>
+            <p>
+      What makes Taiko so stable is that it ships with a known-good, compatible, working release of Chromium when you 'npm install' it.       
+            </p>
+
+            <p>
+And what is Chromium? Well, outside of software, it's the element used to make the chrome features on your car. In the web development world, it's the free and open source core that Google uses to make their Chrome browser. (Clever, eh?)
+            </p>
+
+            <p>
+But Chromium is also at the core of the Opera browser. And in a recent, unexpected move, Microsoft abandoned nearly 30 years of building their own web technologies to make Chromium the core of their Microsoft Edge browser.
+            </p>
+
+            <p>
+So while there are still healthy competitors to Chromium in the open source ecosystem -- Firefox uses a core called Gecko, and Apple's Safari uses a core called WebKit -- Chromium is a popular, well-supported foundation to many popular web browsers that you and your users are most likely already using.
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="22" data-src="slides/chrome-devtools-protocol">
+        <h2 hidden="" aria-hidden="false">Chrome DevTools Protocol</h2>
+        <audio src="slides/chrome-devtools-protocol/audio.mp3"></audio>
+        <figure>
+          <img src="slides/chrome-devtools-protocol/chrome-devtools-protocol.png" alt="Chrome DevTools Protocol" class="contain" data-src="">
+
+          <figcaption>
+            <p>
+      Since the new WebDriver W3C standard isn't fully implemented across all browsers today, Taiko uses the next best thing: the Chrome DevTools Protocol.       
+            </p>
+            <p>
+As you might've guessed from the name, this is the same stable low-level protocol that the Chrome Developer Tools use to interact with the browser, like the JavaScript console. If you've ever run a Lighthouse Audit on your website, Lighthouse uses the Chrome DevTools Protocol to pull performance metrics and accessibility results to build out its detailed analytics reports.  
+            </p>
+            <p>
+Taiko has access to all of the same data and browser automation capabilities that these familiar development tools have. And now you do, too, in an easy scriptable environment.  
+            </p>
+
+
+          </figcaption>
+        </figure>
+      </section>
+      <section class="theme-invert" id="23" data-src="slides/taiko-repl">
+        <h2 aria-hidden="false">Taiko REPL</h2>
+        <audio src="slides/taiko-repl/audio.mp3"></audio>
+        <figure>
+          <pre><code>
+$ taiko
+
+
+Version: 0.5.0 (Chromium:73.0.3638.0)
+Type .api for help and .exit to quit
+
+&gt;
+          </code></pre>  
+
+
+          <figcaption>
+            <p>
+      If you've already installed Taiko, you can simply type 'taiko' at the command prompt. This will launch you into the interactive REPL where you can explore the features of Taiko at your own pace.      
+            </p>
+
+            <p>
+At this point, you are given two suggestions to type. One of these suggestions will make this a very short discussion. Why don't you type '.api' instead and see what other commands are available to you?
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section class="theme-invert" id="24" data-src="slides/taiko-api">
+        <h2 hidden="" aria-hidden="false">Taiko .api</h2>
+        <audio src="slides/taiko-api/audio.mp3"></audio>
+        <figure>
+          <pre><code>
+&gt; .api
+
+Browser actions
+    openBrowser, closeBrowser, client, switchTo, 
+    setViewPort, openTab, closeTab
+
+Page actions
+    goto, reload, title, click, doubleClick, rightClick
+
+[snip]
+
+Run `.api &lt;name&gt;` for more info on a specific function. 
+    For Example: `.api click`.
+Complete documentation is available at 
+    http://taiko.gauge.org.
+          </code></pre>  
+
+
+          <figcaption>
+            <p>
+           Typing '.api' brings up a list of all of the Taiko commands. 
+            </p>
+            <p>
+These should be fairly straight forward to understand. The 'openBrowser' and 'closeBrowser' commands do what you'd expect them to do. 'openTab', 'closeTab', 'click', 'doubleClick', 'rightClick' -- you get the idea.  
+            </p>
+            <p>
+But if you want to learn more about any of these specific commands, simply type '.api' and command name to pull up more information.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+      <section class="theme-invert" id="25" data-src="slides/taiko-openbrowser">
+        <h2 hidden="" aria-hidden="false">.api openBrowser</h2>
+        <audio src="slides/taiko-openbrowser/audio.mp3"></audio>
+        <figure>
+          <pre><code>
+&gt; .api openBrowser
+
+Launches a browser with a tab. The browser will be closed 
+    when the parent node.js process is closed.
+
+Example:
+	openBrowser()
+	openBrowser({ headless: false })
+	openBrowser({args:['--window-size=1440,900']})
+	openBrowser({args: [
+	      '--disable-gpu',
+	      '--disable-dev-shm-usage',
+	      '--disable-setuid-sandbox',
+	      '--no-first-run',
+	      '--no-sandbox',
+	      '--no-zygote']}) - These are recommended args 
+               that have to be passed when running in docker
+          </code></pre>  
+
+
+          <figcaption>
+            <p>
+For example, type '.api openBrowser'. Not surprisingly, this is how you open a new Chromium instance. But there are a number of flags that you can pass to control or customize your new Chromium instance.            
+            </p>
+            <p>
+When you're in the Taiko REPL, typing 'openBrowser' without any options will open a visible instance of Chromium so that you can see what you're doing. But if you're running Taiko as a part of your Continuous Delivery pipeline, you'll almost certainly want to run it in headless mode, which means nothing visible will be displayed. You can also control the size of the window, visible or not, to more closely emulate smartphone, tablet, or laptop users.
+            </p>
+            <p>
+All of these are standard, out-of-the-box, Chromium flags.
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section class="theme-invert" id="26" data-src="slides/taiko-openbrowser-2">
+        <h2 hidden="" aria-hidden="false">openBrowser (cont.)</h2>
+        <audio src="slides/taiko-openbrowser-2/audio.mp3"></audio>
+        <figure>
+          <pre><code>
+&gt; openBrowser()
+
+ ✔ Browser opened
+          </code></pre>  
+
+          <img src="slides/taiko-openbrowser-2/chromium-blank.png" alt="A blank Chromium window" class="contain-half outline">
+
+
+
+          <figcaption>
+            <p>
+      So, if you type 'openBrowser()' right now in your Taiko REPL, you should see a new instance of Chromium pop up with a blank tab, just waiting for you to do something interesting.       
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section class="section-title" id="27" data-src="slides/demo">
+        <h2><span class="highlight">Demo</span></h2>
+        <figure>
+          <figcaption>
+          </figcaption>
+        </figure>
+      </section>
+      <section id="28" data-src="slides/conferenceworks">
+        <h2 aria-hidden="false" style="font-size:2em;"><a href="https://thirstyhead.com/conferenceworks/">https://thirstyhead.com/conferenceworks</a></h2>
+        <figure>
+          <a href="https://thirstyhead.com/conferenceworks/">
+          <img src="slides/conferenceworks/conferenceworks.png" alt="ConferenceWorks" class="contain" data-src="https://thirstyhead.com/conferenceworks/">
+          </a>
+
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="29" data-src="slides/conferenceworks-tests">
+        <h2 aria-hidden="false" style="font-size:2em;"><a href="https://github.com/ThirstyHead/conferenceworks-tests">https://github.com/ThirstyHead/conferenceworks-tests</a></h2>
+        <figure>
+          <a href="https://github.com/ThirstyHead/conferenceworks-tests">
+          <img src="slides/conferenceworks-tests/conferenceworks-tests.png" alt="ConferenceWorks" class="contain" data-src="https://thirstyhead.com/conferenceworks/">
+          </a>
+
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section-title" id="30" data-src="slides/conclusion">
+        <h2><span class="highlight">Conclusion</span></h2>
+        <audio src="slides/conclusion/audio.mp3"></audio>
+        <figure>
+          <figcaption>
+            <p>
+              So, what have we learned?
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+      <section id="31" data-src="slides/gauge-and-taiko">
+        <h2 hidden="" aria-hidden="false">Gauge and Taiko</h2>
+        <figure>
+          <p class="left half">
+          <!-- span class="highlight embiggen">Gauge</span--> 
+          <img src="slides/gauge-and-taiko/gauge-black.png" class="contain-half">
+          <br>is a <span class="highlight">test runner</span> that makes it easy to express your tests in the language of your users.
+          </p>
+          <p class="right half">
+          <!-- span class="highlight embiggen">Taiko</span --> 
+          <img src="slides/gauge-and-taiko/taiko-black.png" class="contain-half">
+          <br>is a <span class="highlight">browser automation tool</span> that makes it easy to drive your web browser with a friendly Domain-Specific Language (DSL).
+          </p>
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section id="32" data-src="slides/gauge-and-taiko-together">
+        <h2 hidden="" aria-hidden="false">Gauge and Taiko Together</h2>
+        <figure>
+          <p><span class="highlight embiggen">Together</span><br>Gauge and Taiko make writing User Journey tests easier than you might have thought possible.</p>
+          <figcaption>
+            <p>
+            
+            </p>
+
+          </figcaption>
+        </figure>
+      </section>
+      <section class="main-title" id="33" data-src="slides/title">
+        <h2 hidden="" aria-hidden="false">User Journey Testing with Gauge and Taiko</h2>
+        <audio src="slides/title/audio.mp3"></audio>
+        <style>
+          .custom-banner{
+            padding-left: 1em;
+            text-align: left;
+            font-size: 2em;
+            font-weight: bold; 
+          }
+
+          .custom-bio{
+            text-align: left;
+            font-size: 0.5em;
+          }
+
+          .custom-subtitle{
+            font-size: 0.6em;
+            font-style: italic;
+          }
+        </style>
+        <figure>
+          <div class="custom-banner">
+            User Journey Testing<br>with Gauge and Taiko
+            <div class="custom-bio">
+              <br>
+              Scott Davis<br>
+              <a href="mailto:scott.davis@thoughtworks.com">scott.davis@thoughtworks.com</a><br>
+              <a href="https://twitter.com/scottdavis99">@scottdavis99</a>
+            </div>
+          </div>
+          <figcaption>
+            <p>
+              Introducing Gauge, a framework for User Journey tests.
+            </p>
+            <p>
+              Presented by Scott Davis. His email address is
+              scott.davis@thoughtworks.com. His Twitter handle is @scottdavis99.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+    </main>
+
+
+
+    <script src="js/talk-o-vision.js"></script>
+  
+
+</body></html>
